@@ -24,11 +24,14 @@ bool DistribParametree::TraitementFichier()
 	}
 	else //le fichier a été chargé au préalable
 	{
-		string nbrepas1, horaire, ration, h, min; // variable temporaire
-
+		const char* nbrepas1; // variable temporaire
+		const char* ration;
+		string horaire, h, min;
 		TiXmlElement *elem = doc->FirstChildElement()->FirstChildElement()->NextSiblingElement();
+
 		nbrepas1 = elem->GetText(); // reccuperation du nombre de repas en string
-		nbrepas = stoi(nbrepas1, NULL, 10); // attribut de la classe a partir de la variable temp string
+		nbrepas = atoi(nbrepas1); // attribut de la classe a partir de la variable temp string
+
 		elem = elem->NextSiblingElement();//itteration
 		int i = 0;
 
@@ -45,8 +48,7 @@ bool DistribParametree::TraitementFichier()
 			elem = elem->NextSiblingElement();//itteration
 
 			ration = elem->GetText();//string
-			const char* ra = ration.c_str();
-			tabRepas[i].nbRation = atoi(ra);//attribut en int depuis string
+			tabRepas[i].nbRation = atoi(ration);//attribut en int depuis string
 			elem = elem->NextSiblingElement();//itteration
 			i++;
 			

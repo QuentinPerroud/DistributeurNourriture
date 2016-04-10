@@ -142,6 +142,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DistribImmediate.h" />
+    <ClInclude Include="DistribParametree.h" />
+    <ClInclude Include="DistribRepas.h" />
+    <ClInclude Include="Header.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DistribImmediate.cpp" />
+    <ClCompile Include="DistribParametree.cpp" />
+    <ClCompile Include="DistribRepas.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

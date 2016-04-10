@@ -32,7 +32,7 @@ int main()
 			}
 		}
 		//delay(1000);
-		if (Param.ChargerFichier("FichierParametresXML.xml"))
+		/*if (Param.ChargerFichier("FichierParametresXML.xml"))
 		{
 			if (Param.VerifDate())
 			{
@@ -48,8 +48,8 @@ int main()
 					//si return true, appelle distrib nourriture avec nb ration correspondant				
 				}
 			}
-		}
-		//delay(1000);
+		}*/
+		delay(1000);
 	}
 	
 	
