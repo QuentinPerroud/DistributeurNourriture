@@ -1,5 +1,7 @@
 #include "DistribRepas.h"
+#include <string>
 
+using namespace std;
 
 
 DistribRepas::DistribRepas()
@@ -16,34 +18,38 @@ DistribRepas::~DistribRepas()
 
 bool DistribRepas::VerifDate()
 {
-	if (doc == 0) //si le fichier n'est pas chargé, impossible de le traiter, return false
+	/*if (doc == 0) //si le fichier n'est pas charge impossible de le traiter, return false
 	{
 		return false;
 	}
-	else //le fichier a été chargé au préalable
-	{
+	else //le fichier */
+ 
 		TiXmlElement *elem = doc->FirstChildElement()->FirstChildElement();
 		string dateFichier = elem->GetText();
+cout << "debut" << dateFichier << endl ;
 
-		if (dateFichier > DateDerniereModif)
+//	if (dateFichier == DateDerniereModif)
+if(true)
 		{
 			DateDerniereModif = dateFichier;
+cout <<"true" << endl;
 			return true;
 		}
 		else
 		{
-			return false;
+cout << "faux" << endl;		
+	return false;
 		}
-	}
+
 }
 
 bool DistribRepas::DistribNourriture(int ration)
 {
 	while (ration != 0)
 	{
-		digitalWrite(4, 1);
+		digitalWrite(7, 1);
 		delay(1000);
-		digitalWrite(4, 0);
+		digitalWrite(7, 0);
 		ration--;
 	}
 	return false;
@@ -55,6 +61,7 @@ bool DistribRepas::ChargerFichier(const char * Nomfichier)
 
 	if (!doc->LoadFile())
 	{
+		cout << "fichier pas charge"<<endl;
 		return false;
 	}
 	else

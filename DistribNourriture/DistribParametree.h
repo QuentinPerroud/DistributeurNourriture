@@ -27,7 +27,7 @@ public:
 	//parametre de sortie : true si succes, false si echec
 	bool TraitementFichier();
 
-
+	bool ComparerHeure(int* heureParam, int* minuteParam);
 
 	///////////////////////////////////Methodes d'acces//////////////////////////////////
 

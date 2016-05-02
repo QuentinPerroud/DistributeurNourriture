@@ -4,6 +4,7 @@
 
 DistribImmediate::DistribImmediate()
 {
+nbRation = 0;
 }
 
 

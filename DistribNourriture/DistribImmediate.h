@@ -16,7 +16,7 @@ public:
 
 private:
 
-	int nbRation = 0;
+	int nbRation;
 	
 
 	

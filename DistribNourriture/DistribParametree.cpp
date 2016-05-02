@@ -59,6 +59,21 @@ bool DistribParametree::TraitementFichier()
 	
 }
 
+bool DistribParametree::ComparerHeure(int * heureParam, int * minuteParam)
+{
+	time_t t;
+	time(&t); // t contient la date et l'heure courante
+	struct tm *newTime1;
+	newTime1 = localtime(&t);
+	int heure = newTime1->tm_hour;		// Les heures sont dans "heures"
+	int minute = newTime1->tm_min;		// Les minutes sont dans "minutes"
+	
+	if (*heureParam == heure)
+		if (*minuteParam == minute)
+			return true;
+		else return false;
+}
+
 
 ////////////////////////////////////////////accesseur//////////////////////////////////
 

@@ -14,20 +14,25 @@ int main()
 
 	
 	wiringPiSetup();
-	pinMode(4, OUTPUT);
+	pinMode(7, OUTPUT);
+	cout << "pin initialee" << endl;
 	DistribImmediate Rim;
 	DistribParametree Param;
-	while (true)
+	while (1)
 	{
-		
+		cout << "dans la boucle" << endl;
 		if (Rim.ChargerFichier("FichierRationIm.xml"))
 		{
+			cout << "fichiercharge" << endl;
 			if (Rim.VerifDate())
 			{
+cout << "verfidate" << endl ;
 				if (Rim.TraitementFichier())
 				{
+cout << "traitefichier" << endl;
 					int Ration = Rim.GetNbRation();
 					Rim.DistribNourriture(Ration);
+				cout <<"fin"<<endl;
 				}
 			}
 		}
