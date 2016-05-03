@@ -1,4 +1,5 @@
-
+#ifndef DISTRIBREPAS_H
+#define DISTRIBREPAS_H
 #include "Header.h"
 
 class DistribRepas
@@ -11,7 +12,7 @@ public:
 	virtual bool TraitementFichier() = 0;
 
 	bool VerifDate();
-	bool DistribNourriture(int ration);
+	void DistribNourriture(int ration);
 	//Charge un fichier xml dans un objet de type TiXmlDocument
 	//parametre d'entrée : Nom du fichier XML
 	//Parametre de sortie : l'objet TiXmlDocument
@@ -23,3 +24,5 @@ protected :
 	
 	
 };
+
+#endif

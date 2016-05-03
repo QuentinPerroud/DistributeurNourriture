@@ -4,7 +4,7 @@
 DistribParametree::DistribParametree()
 {
 	nbrepas = 0;
-	for (int i = 0; i <= 5; i++)
+	for (int i = 0; i <= 4 ; i++)
 	{
 		tabRepas[i].horaire.heure = 0;
 		tabRepas[i].horaire.minute = 0;
@@ -59,7 +59,7 @@ bool DistribParametree::TraitementFichier()
 	
 }
 
-bool DistribParametree::ComparerHeure(int * heureParam, int * minuteParam)
+bool DistribParametree::ComparerHeure(int heureParam, int  minuteParam)
 {
 	time_t t;
 	time(&t); // t contient la date et l'heure courante
@@ -68,8 +68,8 @@ bool DistribParametree::ComparerHeure(int * heureParam, int * minuteParam)
 	int heure = newTime1->tm_hour;		// Les heures sont dans "heures"
 	int minute = newTime1->tm_min;		// Les minutes sont dans "minutes"
 	
-	if (*heureParam == heure)
-		if (*minuteParam == minute)
+	if (heureParam == heure)
+		if (minuteParam == minute)
 			return true;
 		else return false;
 }

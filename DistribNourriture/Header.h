@@ -1,9 +1,11 @@
-#pragma once
+#ifndef HEADER_H
+#define HEADER_H
 
-#include <iostream>
 #include "tinyxml.h"
-#include <string>
 #include "wiringPi.h"
-#include <sstream>
 #include <time.h>
+#include <iostream>
+#include <string>
 using namespace std;
+
+#endif

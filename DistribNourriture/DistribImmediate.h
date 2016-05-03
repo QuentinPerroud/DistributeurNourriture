@@ -1,4 +1,6 @@
-#pragma once
+#ifndef DISTRIBIMMEDIATE_H
+#define DISTRIBIMMEDIATE_H
+
 #include "Header.h"
 #include "DistribRepas.h"
 
@@ -22,3 +24,4 @@ private:
 	
 };
 
+#endif
