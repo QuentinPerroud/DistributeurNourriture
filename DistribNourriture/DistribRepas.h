@@ -10,6 +10,7 @@ public:
 	DistribRepas();
 	~DistribRepas();
 	virtual bool TraitementFichier() = 0;
+	virtual void EcrireLog(bool PresenceErreur) = 0;
 
 	bool VerifDate();
 	void DistribNourriture(int ration);
@@ -17,8 +18,10 @@ public:
 	//parametre d'entrée : Nom du fichier XML
 	//Parametre de sortie : l'objet TiXmlDocument
 	bool ChargerFichier(const char * Nomfichier);
+	
 protected : 
-	TiXmlDocument *doc;
+	TiXmlDocument* doc;
+	TiXmlDocument*	log;
 	string DateDerniereModif;
 
 	

@@ -28,7 +28,7 @@ public:
 	bool TraitementFichier();
 
 	bool ComparerHeure(int heureParam, int minuteParam);
-
+	void EcrireLog(bool PresenceErreur);
 	///////////////////////////////////Methodes d'acces//////////////////////////////////
 
 	//Retourne la valeur NbRepas

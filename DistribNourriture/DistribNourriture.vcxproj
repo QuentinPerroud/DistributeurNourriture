@@ -150,12 +150,17 @@
     <ClInclude Include="DistribParametree.h" />
     <ClInclude Include="DistribRepas.h" />
     <ClInclude Include="Header.h" />
+    <ClInclude Include="Log.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DistribImmediate.cpp" />
     <ClCompile Include="DistribParametree.cpp" />
     <ClCompile Include="DistribRepas.cpp" />
+    <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

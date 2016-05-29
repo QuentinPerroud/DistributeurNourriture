@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DistribImmediate">
+    <Position X="4.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAQAAAAAAAAACgAAAAAAA=</HashCode>
+      <FileName>DistribImmediate.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DistribParametree">
+    <Position X="9.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAQAAAAAQEAAACAASAAAAA=</HashCode>
+      <FileName>DistribParametree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DistribRepas">
+    <Position X="7" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAIAQAAAAAAAAIAQAAAAAAAAAAAACAAQEAAAA=</HashCode>
+      <FileName>DistribRepas.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Horaire">
+    <Position X="11.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>DistribParametree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Repas">
+    <Position X="13.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DistribParametree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -33,3 +33,7 @@ int DistribImmediate::GetNbRation()
 	return nbRation;
 }
 
+void DistribImmediate::EcrireLog(bool PresenceErreur)
+{
+}
+

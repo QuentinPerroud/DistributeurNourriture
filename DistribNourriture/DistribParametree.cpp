@@ -74,6 +74,37 @@ bool DistribParametree::ComparerHeure(int heureParam, int  minuteParam)
 		else return false;
 }
 
+void DistribParametree::EcrireLog(bool PresenceErreur)
+{
+	log = new TiXmlDocument("Log.xml");
+	log->LoadFile();
+
+	time_t t;
+	time(&t); // t contient la date et l'heure courante
+	struct tm *newTime1;
+	newTime1 = localtime(&t);
+	int heure = newTime1->tm_hour;		// Les heures sont dans "heures"
+	int minute = newTime1->tm_min;		// Les minutes sont dans "minutes"
+
+	string h, m;
+	h = to_string(heure);
+	m = to_string(minute);
+	string hor = h + ':' + m;
+
+	const char * horaire = hor.c_str();
+
+	if (PresenceErreur == true)
+	{
+	
+	}
+	else
+	{
+
+	}
+
+	log->SaveFile("Log.xml");
+}
+
 
 ////////////////////////////////////////////accesseur//////////////////////////////////
 
