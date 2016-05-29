@@ -74,7 +74,7 @@ bool DistribParametree::ComparerHeure(int heureParam, int  minuteParam)
 		else return false;
 }
 
-void DistribParametree::EcrireLog(bool PresenceErreur)
+void DistribParametree::EcrireLog(bool PresenceErreur, int ration)
 {
 	log = new TiXmlDocument("Log.xml");
 	log->LoadFile();
@@ -86,23 +86,53 @@ void DistribParametree::EcrireLog(bool PresenceErreur)
 	int heure = newTime1->tm_hour;		// Les heures sont dans "heures"
 	int minute = newTime1->tm_min;		// Les minutes sont dans "minutes"
 
-	string h, m;
-	h = to_string(heure);
-	m = to_string(minute);
-	string hor = h + ':' + m;
+	char  h[3];
+	char m[3];
+	itoa(heure, h, 10); 
+	itoa(minute, m, 10); //on transforme les entiers heure et minute en char h et m
+	string he(h), mi(m); //on transfmorme les char h et m en string he et mi 
+	//h = to_string(heure); //pas supporté sur raspberry
+	//m = to_string(minute);
+	string hor = he + ':' + mi;
 
-	const char * horaire = hor.c_str();
+	const char * horaire = hor.c_str(); // on transforme la string hor en char* horaire
 
-	if (PresenceErreur == true)
+
+	char nbRation[2];
+	itoa(ration, nbRation, 10);
+
+	if (PresenceErreur == true)//il y a eu une erreur lors de la distribution
 	{
-	
+		TiXmlElement* f = log->FirstChildElement();
+
+		TiXmlElement element("Horaire");
+		TiXmlText * text = new TiXmlText(horaire);
+		element.LinkEndChild(text);
+		f->InsertEndChild(element);
+
+		TiXmlElement element2("Ration");
+		TiXmlText * text2 = new TiXmlText("Echec");
+		element2.LinkEndChild(text2);
+		f->InsertEndChild(element2);
+
 	}
 	else
 	{
+		TiXmlElement* f = log->FirstChildElement();
 
+		TiXmlElement element("Horaire");
+		TiXmlText * text = new TiXmlText(horaire);
+		element.LinkEndChild(text);
+		f->InsertEndChild(element);
+
+		TiXmlElement element2("Ration");
+		TiXmlText * text2 = new TiXmlText(nbRation);
+		element2.LinkEndChild(text2);
+		f->InsertEndChild(element2);
 	}
 
 	log->SaveFile("Log.xml");
+	delete log;
 }
 
 

@@ -15,7 +15,7 @@ public:
 	//parametre de sortie : true si succes, false si echec
 	bool TraitementFichier();
 	int GetNbRation();
-	void EcrireLog(bool PresenceErreur);
+	void EcrireLog(bool PresenceErreur, int ration);
 
 private:
 

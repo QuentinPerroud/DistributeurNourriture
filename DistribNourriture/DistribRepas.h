@@ -10,7 +10,7 @@ public:
 	DistribRepas();
 	~DistribRepas();
 	virtual bool TraitementFichier() = 0;
-	virtual void EcrireLog(bool PresenceErreur) = 0;
+	virtual void EcrireLog(bool PresenceErreur, int ration) = 0;
 
 	bool VerifDate();
 	void DistribNourriture(int ration);
