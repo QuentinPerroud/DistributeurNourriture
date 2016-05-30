@@ -10,10 +10,10 @@ public:
 	DistribRepas();
 	~DistribRepas();
 	virtual bool TraitementFichier() = 0;
-	virtual void EcrireLog(bool PresenceErreur, int ration) = 0;
+	virtual void EcrireLog(bool PasErreur, int ration) = 0;
 
 	bool VerifDate();
-	void DistribNourriture(int ration);
+	bool DistribNourriture(int ration);
 	//Charge un fichier xml dans un objet de type TiXmlDocument
 	//parametre d'entrée : Nom du fichier XML
 	//Parametre de sortie : l'objet TiXmlDocument

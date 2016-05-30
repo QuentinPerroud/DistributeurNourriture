@@ -36,7 +36,7 @@ bool DistribParametree::TraitementFichier()
 		int i = 0;
 
 		while (elem) {
-
+			//borner le i
 			horaire = elem->GetText();//string
 			h = horaire.substr(0, 2);//on recupere l'heure a partir des 2 premier char de la string horaire
 			min = horaire.substr(2, 2);//on recupere les minutes avec les deux dernier char
@@ -69,12 +69,30 @@ bool DistribParametree::ComparerHeure(int heureParam, int  minuteParam)
 	int minute = newTime1->tm_min;		// Les minutes sont dans "minutes"
 	
 	if (heureParam == heure)
-		if (minuteParam == minute)
+	{
+	
+		if (minuteParam == minute) 
+		{
+			cout << "comparerHeure : vrai" << endl;
+			delay(1000);
 			return true;
-		else return false;
+		}
+		else
+		{
+			cout << "comparerHeure : faux" << endl;
+			delay(1000);
+			return false;
+		}
+	}
+	else
+	{
+		cout << "comparerHeure : faux" << endl;
+		delay(1000);
+		return false;
+	}
 }
 
-void DistribParametree::EcrireLog(bool PresenceErreur, int ration)
+void DistribParametree::EcrireLog(bool PasErreur, int ration)
 {
 	log = new TiXmlDocument("Log.xml");
 	log->LoadFile();
@@ -85,23 +103,37 @@ void DistribParametree::EcrireLog(bool PresenceErreur, int ration)
 	newTime1 = localtime(&t);
 	int heure = newTime1->tm_hour;		// Les heures sont dans "heures"
 	int minute = newTime1->tm_min;		// Les minutes sont dans "minutes"
+	int joursemaine = newTime1->tm_wday; //a transformer en chaine de charactere
+	int jourmois = newTime1->tm_mday;
+	int mois = newTime1->tm_mon;
+	mois++;
+	stringstream ss1, ss2, ss3, ss4, rat;
 
-	char  h[3];
-	char m[3];
-	itoa(heure, h, 10); 
-	itoa(minute, m, 10); //on transforme les entiers heure et minute en char h et m
-	string he(h), mi(m); //on transfmorme les char h et m en string he et mi 
+	ss1 << heure;
+	ss2 << minute;
+	ss3 << jourmois;
+	ss4 << mois;
+	//itoa(heure, h, 10); 
+	//	itoa(minute, m, 10); //on transforme les entiers heure et minute en char h et m
+
+	string he = ss1.str(); //on transfmorme les char h et m en string he et mi 
+	string mi = ss2.str();
+	string daymonth = ss3.str();
+	string month = ss4.str();
+
 	//h = to_string(heure); //pas supporté sur raspberry
 	//m = to_string(minute);
-	string hor = he + ':' + mi;
+	string hor = daymonth + '/' + month + ' ' + he + ':' + mi;
 
 	const char * horaire = hor.c_str(); // on transforme la string hor en char* horaire
 
 
-	char nbRation[2];
-	itoa(ration, nbRation, 10);
+	
+	rat << ration;
+	string rati = rat.str();
+	const char * nbRation = rati.c_str();
 
-	if (PresenceErreur == true)//il y a eu une erreur lors de la distribution
+	if (PasErreur == false)//il y a eu une erreur lors de la distribution
 	{
 		TiXmlElement* f = log->FirstChildElement();
 

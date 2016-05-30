@@ -33,7 +33,7 @@ int DistribImmediate::GetNbRation()
 	return nbRation;
 }
 
-void DistribImmediate::EcrireLog(bool PresenceErreur, int ration)
+void DistribImmediate::EcrireLog(bool PasErreur, int ration)
 {
 	log = new TiXmlDocument("Log.xml");
 	log->LoadFile();
@@ -44,23 +44,36 @@ void DistribImmediate::EcrireLog(bool PresenceErreur, int ration)
 	newTime1 = localtime(&t);
 	int heure = newTime1->tm_hour;		// Les heures sont dans "heures"
 	int minute = newTime1->tm_min;		// Les minutes sont dans "minutes"
+	int joursemaine = newTime1->tm_wday; //a transformer en chaine de charactere
+	int jourmois = newTime1->tm_mday;
+	int mois = newTime1->tm_mon;
 
-	char  h[3];
-	char m[3];
-	itoa(heure, h, 10);
-	itoa(minute, m, 10); //on transforme les entiers heure et minute en char h et m
-	string he(h), mi(m); //on transfmorme les char h et m en string he et mi 
-						 //h = to_string(heure); //pas supporté sur raspberry
-						 //m = to_string(minute);
-	string hor = he + ':' + mi;
+	stringstream ss1, ss2,ss3,ss4, rat;
+
+	ss1 << heure;
+	ss2 << minute;
+	ss3 << jourmois;
+	ss4 << mois;
+	//itoa(heure, h, 10); 
+	//	itoa(minute, m, 10); //on transforme les entiers heure et minute en char h et m
+	
+	string he = ss1.str(); //on transfmorme les char h et m en string he et mi 
+	string mi = ss2.str();
+	string daymonth = ss3.str();
+	string month = ss4.str();
+	
+	//h = to_string(heure); //pas supporté sur raspberry
+	//m = to_string(minute);
+	string hor = daymonth + '/' + month +' ' + he + ':' + mi;
 
 	const char * horaire = hor.c_str(); // on transforme la string hor en char* horaire
 
 
-	char nbRation[2];
-	itoa(ration, nbRation, 10);
+	rat << ration;
+	string rati = rat.str();
+	const char * nbRation = rati.c_str();
 
-	if (PresenceErreur == true)//il y a eu une erreur lors de la distribution
+	if (PasErreur == false)//il y a eu une erreur lors de la distribution
 	{
 		TiXmlElement* f = log->FirstChildElement();
 
@@ -69,7 +82,7 @@ void DistribImmediate::EcrireLog(bool PresenceErreur, int ration)
 		element.LinkEndChild(text);
 		f->InsertEndChild(element);
 
-		TiXmlElement element2("Ration Immediate");
+		TiXmlElement element2("RationIm");
 		TiXmlText * text2 = new TiXmlText("Echec");
 		element2.LinkEndChild(text2);
 		f->InsertEndChild(element2);
@@ -84,7 +97,7 @@ void DistribImmediate::EcrireLog(bool PresenceErreur, int ration)
 		element.LinkEndChild(text);
 		f->InsertEndChild(element);
 
-		TiXmlElement element2("Ration immediate");
+		TiXmlElement element2("RationIm");
 		TiXmlText * text2 = new TiXmlText(nbRation);
 		element2.LinkEndChild(text2);
 		f->InsertEndChild(element2);

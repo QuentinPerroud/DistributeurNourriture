@@ -26,32 +26,37 @@ bool DistribRepas::VerifDate()
  
 		TiXmlElement *elem = doc->FirstChildElement()->FirstChildElement();
 		string dateFichier = elem->GetText();
-		cout << "debut verif date" << endl ;
+
 
 	if (DateDerniereModif < dateFichier )
 		{
 			DateDerniereModif = dateFichier;
-			cout <<"true" << endl;
+			
 			return true;
 		}
 		else
 		{
-			cout << "faux" << endl;		
+	
 			return false;
 		}
 
 }
 
-void DistribRepas::DistribNourriture(int ration)
+bool DistribRepas::DistribNourriture(int ration)
 {
 	while (ration != 0)
 	{
+		#ifndef TESTWINDOWS
 		digitalWrite(7, 1);
 		delay(1000);
 		digitalWrite(7, 0);
 		delay(1000);
+#else
+		cout << "distribution dune ration" << endl;
+#endif
 		ration--;
 	}
+	return true;
 }
 
 bool DistribRepas::ChargerFichier(const char * Nomfichier)
