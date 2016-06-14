@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <PARAMETRES>
-<Date_Modif>16-05-30 21:28:20</Date_Modif>
+<Date_Modif>16-05-31 09:29:51</Date_Modif>
 <NbreRepas>3</NbreRepas>
-<Horaire1>2149</Horaire1>
-<Ration1>1</Ration1>
-<Horaire2>2150</Horaire2>
-<Ration2>2</Ration2>
-<Horaire3>2151</Horaire3>
-<Ration3>3</Ration3>
+<Horaire1>0930</Horaire1>
+<Ration1>3</Ration1>
+<Horaire2>1630</Horaire2>
+<Ration2>5</Ration2>
+<Horaire3>2130</Horaire3>
+<Ration3>2</Ration3>
 </PARAMETRES>

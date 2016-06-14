@@ -27,11 +27,7 @@ public:
 	//parametre de sortie : true si succes, false si echec
 	bool TraitementFichier();
 
-	//Compare l'heure entrée en parametre avec l'heure réelle
-	//retourne vrai si les heures concordent, faux si ce n'est pas le cas
 	bool ComparerHeure(int heureParam, int minuteParam);
-
-	//ecrit dans le fichier log si la distribution parametrée à reussi ou non, à quelle heure et le nombre de ration envoyés
 	void EcrireLog(bool PasErreur, int ration);
 	///////////////////////////////////Methodes d'acces//////////////////////////////////
 
