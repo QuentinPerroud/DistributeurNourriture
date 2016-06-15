@@ -67,7 +67,7 @@ int main()
 			}
 		}
 
-		delay(30000);
+		delay(50000);
 	}
 }
 	

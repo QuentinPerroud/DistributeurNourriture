@@ -47,7 +47,7 @@ void DistribImmediate::EcrireLog(bool PasErreur, int ration)
 	int joursemaine = newTime1->tm_wday; //a transformer en chaine de charactere
 	int jourmois = newTime1->tm_mday;
 	int mois = newTime1->tm_mon;
-
+	mois++;
 	stringstream ss1, ss2,ss3,ss4, rat;
 
 	ss1 << heure;
