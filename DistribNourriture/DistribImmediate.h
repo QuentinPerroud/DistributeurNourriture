@@ -17,7 +17,7 @@ public:
 	
 	int GetNbRation();
 
-	//ecrit dans le fichier log si la distribution immediate à reussi ou non, à quelle heure et le nombre de ration envoyés
+	//ecrit dans le fichier log si la distribution immediate à reussi ou non, à quelle heure et le nombre de ration envoyés bla bla
 	void EcrireLog(bool PasErreur, int ration);
 
 private:
